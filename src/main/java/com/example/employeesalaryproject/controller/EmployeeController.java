@@ -1,0 +1,19 @@
+package com.example.employeesalaryproject.controller;
+
+import com.example.employeesalaryproject.pojo.EmployeeDetails;
+import com.example.employeesalaryproject.service.EmployeeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class EmployeeController {
+    @Autowired
+    private EmployeeService employeeService;
+
+    @GetMapping("/employee/{id}")
+    public EmployeeDetails getEmployeeById(@PathVariable("id") Long id) {
+        return employeeService.getEmployeeById(id);
+    }
+}
